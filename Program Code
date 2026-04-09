@@ -1,0 +1,126 @@
+import tkinter as tk
+from tkinter import messagebox
+
+
+def show_result(title, content):
+    result_window = tk.Toplevel(root)
+    result_window.title(title)
+    result_window.geometry("500x400")
+
+    label = tk.Label(result_window, text=title, font=("Arial", 14, "bold"))
+    label.pack(pady=10)
+
+    text = tk.Text(result_window, wrap="word", font=("Arial", 11))
+    text.insert(tk.END, content)
+    text.config(state="disabled")
+    text.pack(padx=10, pady=10, fill="both", expand=True)
+
+
+def after_10th():
+    content = """
+SCIENCE:
+Duration: 2 years
+Subjects: Physics, Chemistry, Maths/Biology
+Careers: Engineering, Doctor, IT, Research
+
+COMMERCE:
+Duration: 2 years
+Subjects: Accounts, Economics, Business Studies
+Careers: CA, CS, Banker, Businessman
+
+ARTS:
+Duration: 2 years
+Subjects: History, Political Science, Psychology
+Careers: Lawyer, Journalist, Teacher
+
+DIPLOMA:
+Duration: 3 years
+Courses: Computer, Mechanical, Civil Engineering
+Careers: Technician, Junior Engineer
+"""
+    show_result("After 10th", content)
+
+
+def after_12th():
+    content = """
+SCIENCE:
+Courses: BTech, MBBS, BSc, Pharmacy
+Duration: 3-5 years
+Careers: Engineer, Doctor, Scientist
+
+COMMERCE:
+Courses: BCom, BBA, CA, CS
+Duration: 3 years
+Careers: Accountant, Manager
+
+ARTS:
+Courses: BA, Law, Journalism
+Duration: 3-5 years
+Careers: Lawyer, Journalist
+"""
+    show_result("After 12th", content)
+
+
+def after_diploma():
+    content = """
+DEGREE:
+Courses: BE / BTech, BSc IT / CS
+Duration: 3 years (Direct 2nd year)
+Careers: Engineer, Developer
+
+JOB:
+Roles: Junior Engineer, Technician, Supervisor
+Sectors: Industry, IT, Construction
+
+GOVERNMENT EXAMS:
+SSC, Railway, PSU
+Benefits: Job security, Salary
+"""
+    show_result("After Diploma", content)
+
+
+def after_degree():
+    content = """
+HIGHER STUDIES:
+Courses: MTech, MSc, MBA
+Duration: 2 years
+Careers: Specialist, Lecturer
+
+JOB:
+Roles: Software Engineer, Data Analyst, Manager
+Sectors: IT, Finance, Marketing
+
+COMPETITIVE EXAMS:
+UPSC, MPSC, GATE
+Careers: IAS, IPS
+
+BUSINESS:
+Startup, Freelancing, Family Business
+Benefits: Independence
+"""
+    show_result("After Degree", content)
+
+
+root = tk.Tk()
+root.title("Career Guidance System")
+root.geometry("400x400")
+
+title = tk.Label(root, text="Career Guidance System", font=("Arial", 16, "bold"))
+title.pack(pady=20)
+
+btn1 = tk.Button(root, text="After 10th", width=20, command=after_10th)
+btn1.pack(pady=10)
+
+btn2 = tk.Button(root, text="After 12th", width=20, command=after_12th)
+btn2.pack(pady=10)
+
+btn3 = tk.Button(root, text="After Diploma", width=20, command=after_diploma)
+btn3.pack(pady=10)
+
+btn4 = tk.Button(root, text="After Degree", width=20, command=after_degree)
+btn4.pack(pady=10)
+
+exit_btn = tk.Button(root, text="Exit", width=20, command=root.quit)
+exit_btn.pack(pady=20)
+
+root.mainloop()
